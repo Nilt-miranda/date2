@@ -1,3 +1,4 @@
+npm i @vercel/analytics
 const app = document.getElementById("app");
 
 const state = {
