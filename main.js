@@ -9,7 +9,7 @@ const state = {
 // Etapa 1
 function renderStep1() {
   app.innerHTML = `
-    <h1>Oii bb, seja muito bem-vinda! 😄</h1>
+    <h1>Oii bb, seja bem-vinda! </h1>
     <button onclick="goToStep(2)">Vamos lá?</button>
   `;
 }
@@ -17,7 +17,7 @@ function renderStep1() {
 // Etapa 2
 function renderStep2() {
   app.innerHTML = `
-    <h2>Já que você está livre na quarta... vamos em um date? 💖</h2>
+    <h2>Já que você está livre na quarta... vamos em um date? </h2>
     <button onclick="goToStep(3)">Sim!</button>
     <button id="noBtn" onmouseover="moveNoButton()">Não 🙄​</button>
   `;
@@ -27,7 +27,7 @@ function renderStep2() {
 // Etapa 3
 function renderStep3() {
   app.innerHTML = `
-    <h2>Escolha sensata! 🧠😉</h2>
+    <h2>Escolha sensata!</h2>
 
     <p>Escolha o horário:</p>
     <select id="horario">
@@ -48,7 +48,7 @@ function renderStep3() {
 
     <p>Onde você quer que seja o encontro?</p>
     <select id="lugar">
-      <option value="Secreto">🔒 Secreto (confia)</option>
+      <option value="Secreto"> Secreto </option>
     </select>
 
     <br>
@@ -69,7 +69,7 @@ function renderStep3() {
 // Etapa 4 (mensagem final)
 function renderStep4(msg) {
   app.innerHTML = `
-    <h2>Fechou! 🥰</h2>
+    <h2>Fechou!</h2>
     <p>${msg}</p>
   `;
 }
