@@ -3,57 +3,46 @@ const app = document.getElementById("app");
 const state = {
   horario: null,
   comida: null,
-  lugar: null,
 };
 
-// Etapa 1
+// Funções de etapa
 function renderStep1() {
-  app.innerHTML = `
-    <h1>Oii bb, seja bem-vinda!</h1>
+  app.innerHTML = 
+    <h1>Oii bb, seja muito bem-vinda! 😄</h1>
     <button onclick="goToStep(2)">Vamos lá?</button>
-  `;
+  ;
 }
 
-// Etapa 2
 function renderStep2() {
-  app.innerHTML = `
-    <h2>Já que você está livre na quarta... vamos em um date? </h2>
+  app.innerHTML = 
+    <h2>Já que você está livre esta livre na quarta vamos em um date? </h2>
     <button onclick="goToStep(3)">Sim!</button>
     <button id="noBtn" onmouseover="moveNoButton()">Não 🙄​</button>
-  `;
+  ;
   document.getElementById('noBtn').style.position = "absolute";
 }
 
-// Etapa 3
 function renderStep3() {
-  app.innerHTML = `
-    <h2>Escolha sensata! 🙂‍↕️</h2>
-
+  app.innerHTML = 
+    <h2>Escolha sensata!🙂‍↕️​ </h2>
     <p>Escolha o horário:</p>
     <select id="horario">
       <option value="19h">19h</option>
       <option value="20h">20h</option>
       <option value="21h">21h</option>
     </select>
-
-    <p>O que você quer comer? (um dia fora da dieta, nn vai te matar 😑)</p>
+    <p>O que você quer comer? (um dia fora dieta, nn vai te matar)😑</p>
     <select id="comidaSelect">
       <option value="pizza">Pizza</option>
       <option value="sushi">Sushi</option>
       <option value="hambúrguer">Hambúrguer</option>
-      <option value="comida fit">Comida fit 🫠</option>
+      <option value="comida fit">Comida fit🫠​</option>
       <option value="custom">Quero escolher...</option>
     </select>
     <input type="text" id="customComida" class="hidden" placeholder="Escreva sua opção">
-
-    <p>Onde você quer que seja o encontro?</p>
-    <select id="lugar">
-      <option value="Secreto"> Secreto </option>
-    </select>
-
     <br>
     <button onclick="finalizar()">Confirmar</button>
-  `;
+  ;
 
   document.getElementById("comidaSelect").addEventListener("change", () => {
     const select = document.getElementById('comidaSelect');
@@ -66,15 +55,14 @@ function renderStep3() {
   });
 }
 
-// Etapa 4 (mensagem final)
 function renderStep4(msg) {
-  app.innerHTML = `
-    <h2>Fechou! </h2>
+  app.innerHTML = 
+    <h2>Fechou!</h2>
     <p>${msg}</p>
-  `;
+  ;
 }
 
-// Troca de etapas
+// Navegação
 window.goToStep = (step) => {
   switch (step) {
     case 1: renderStep1(); break;
@@ -84,13 +72,29 @@ window.goToStep = (step) => {
   }
 };
 
-// Botão "não" se move
+// Botão “Não” foge
 window.moveNoButton = () => {
   const btn = document.getElementById("noBtn");
   btn.style.top = Math.random() * (window.innerHeight - 80) + "px";
   btn.style.left = Math.random() * (window.innerWidth - 120) + "px";
 };
 
-// Confirmar
+// Finalizar
 window.finalizar = () => {
-  const horario = document.getElementById("horario").valu
+  const horario = document.getElementById("horario").value;
+  const cs = document.getElementById("comidaSelect").value;
+  const custom = document.getElementById("customComida").value.trim();
+
+  const comida = cs === "custom" ? custom || "alguma surpresa 👀" : cs;
+  const msg = Te busco às ${horario} pra comermos ${comida}. ❤️;
+
+  state.horario = horario;
+  state.comida = comida;
+  state.mensagem = msg;
+
+  goToStep(4);
+  console.log(msg);
+};
+
+// Inicia app
+goToStep(1);
