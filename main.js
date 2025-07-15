@@ -100,7 +100,7 @@ window.finalizar = () => {
 
   const comida = cs === "custom" ? custom || "alguma surpresa 👀" : cs;
   const msg = `Te busco às ${horario} pra comermos ${comida}, em um lugar ${lugar.toLowerCase()}. ❤️`;
-  <p style="color: red; font-size: 10px;">
+    <p style="color: red; font-size: 10px;">
         Se você topou,eu nn tenhaa recebido, me manda um print dessa tela lá no zap 😅
         </p>` : ""}
   state.horario = horario;
